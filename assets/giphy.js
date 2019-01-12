@@ -1,4 +1,4 @@
-var queens = ["Alaska", "Jujubee", "Shangela", "Willam Belli", "Alyssa Edwards", "Bob the Drag Queen"];
+var topics = ["Alaska", "Jujubee", "Shangela", "Willam Belli", "Alyssa Edwards", "Bob the Drag Queen"];
 
 $("button").on("click", function () {
     var searchObject = $(this).attr("data-target");
@@ -26,4 +26,19 @@ $("button").on("click", function () {
             $("#gifs-here").prepend(gifDiv);
           }
         });
-    });
+});
+    
+var createButtons = function () {
+  for (var j = 0; j < topics.length; j++){
+    var gifButton = $("<button>");
+    gifButton.addClass("gif-btn");
+    gifButton.attr("data-target", topic[i])
+    gifButton.text(topic[i]);
+    $("#buttonsDiv").append(gifButton);
+  }
+}
+ 
+$("#add-gif").on("click", function (event) {
+  event.preventDefault();
+  
+}
