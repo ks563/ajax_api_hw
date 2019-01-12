@@ -49,6 +49,7 @@ $("#add-gif").on("click", function (event) {
   var gif = $("#gif-input").val().trim();
   // pushes in to array that holds search topics - and what is looped over to create buttons
   topics.push(gif);
+  $("#gif-input").val("");
 
   // call create buttons again to make new button as items are pushed into array
   createButtons();
