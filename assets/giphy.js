@@ -40,5 +40,5 @@ var createButtons = function () {
  
 $("#add-gif").on("click", function (event) {
   event.preventDefault();
-  
-}
+
+})
