@@ -1,5 +1,8 @@
-var topics = ["Alaska", "Jujubee", "Shangela", "Willam Belli", "Alyssa Edwards", "Bob the Drag Queen"];
+var topics = ["Alaska Thunderfuck", "Jujubee", "Shangela", "Willam Belli", "Alyssa Edwards", "Bob the Drag Queen"];
+var ratingParam;
+var limit;
 
+  
 $("button").on("click", function () {
     var queen = $(this).attr("data-target");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -7,7 +10,7 @@ $("button").on("click", function () {
 
     $.ajax({
       url: queryURL,
-      method: "GET"
+      method: "GET",
     })
       .then(function (response) {
         var results = response.data;
