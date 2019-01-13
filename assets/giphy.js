@@ -6,7 +6,7 @@ var createButtons = function () {
   // need to empty, buttons repeat when you add buttons
   $("#buttonsDiv").empty();
 
-  for (var j = 0; j < topics.length; j++){
+  for (var j = 0; j < topics.length; j++) {
     var gifButton = $("<button>");
     gifButton.addClass("gif-btn");
     gifButton.attr("data-target", topics[j])
@@ -44,27 +44,43 @@ $(".gif-btn").on("click", function () {
 
   $.ajax({
     url: queryURL,
-    method: "GET",
-    rating: "g"
+    method: "GET"
   })
     .then(function (response) {
       var results = response.data;
 
       for (var i = 0; i < results.length; i++) {
-          var gifDiv = $("<div>");
+        var gifDiv = $("<div>");
 
-          var rating = results[i].rating;
+        var rating = results[i].rating;
 
-          var p = $("<p>").text("Rating: " + rating);
+        var p = $("<p>").text("Rating: " + rating);
 
-          var queenGif = $("<img>");
-          queenGif.attr("src", results[i].images.fixed_height.url);
+        var queenGif = $("<img>");
+        queenGif.attr("src", results[i].images.fixed_height_still.url);
 
-          gifDiv.prepend(p);
-          gifDiv.prepend(queenGif);
+        gifDiv.prepend(p);
+        gifDiv.prepend(queenGif);
 
-          $("#gifs-here").prepend(gifDiv);
-        }
+        $("#gifs-here").prepend(gifDiv);
+      }
     });
 });
-  
+
+$("#gifs-here").on("click", function () {
+  var src = $(this).attr(src)
+  if ($(this).hasClass('playing')) {
+    //stop
+    $(this).removeAttr("src");
+    $(this).attr("src", results[i].images.fixed_height_still.url);
+    $(this).removeClass('playing');
+  } else {
+    //play
+    $(this).addClass('playing');
+    $(this).removeAttr('src');
+    $(this).attr("src", results[i].images.fixed_height.url);
+  }
+})
+
+// 74, 
+// 80 
