@@ -31,10 +31,6 @@ $("#add-gif").on("click", function (event) {
   $("#gif-input").val("");
 });
 
-
-//on click event to start gif
-//onclick event to stop gifs
-
 //as soon as I add a new button it breaks the ajax call
 
 $(".gif-btn").on("click", function () {
@@ -66,6 +62,9 @@ $(".gif-btn").on("click", function () {
       }
     });
 });
+
+//on click event to start gif
+//onclick event to stop gifs
 
 $("#gifs-here").on("click", function () {
   if ($(this).hasClass('playing')) {
