@@ -3,36 +3,6 @@ var ratingParam;
 var limit;
 
   
-$("button").on("click", function () {
-    var queen = $(this).attr("data-target");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      queen + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-    $.ajax({
-      url: queryURL,
-      method: "GET",
-    })
-      .then(function (response) {
-        var results = response.data;
-
-        for (var i = 0; i < results.length; i++) {
-            var gifDiv = $("<div>");
-
-            var rating = results[i].rating;
-
-            var p = $("<p>").text("Rating: " + rating);
-
-            var queenGif = $("<img>");
-            queenGif.attr("src", results[i].images.fixed_height.url);
-
-            gifDiv.prepend(p);
-            gifDiv.prepend(queenGif);
-
-            $("#gifs-here").prepend(gifDiv);
-          }
-      });
-});
-    
 var createButtons = function () {
   // need to empty, buttons repeat when you add buttons
   $("#buttonsDiv").empty();
@@ -62,3 +32,34 @@ $("#add-gif").on("click", function (event) {
 //onclick event to stop gifs
 
 createButtons();
+
+$(".gif-btn").on("click", function () {
+  var queen = $(this).attr("data-target");
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+    queen + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  })
+    .then(function (response) {
+      var results = response.data;
+
+      for (var i = 0; i < results.length; i++) {
+          var gifDiv = $("<div>");
+
+          var rating = results[i].rating;
+
+          var p = $("<p>").text("Rating: " + rating);
+
+          var queenGif = $("<img>");
+          queenGif.attr("src", results[i].images.fixed_height.url);
+
+          gifDiv.prepend(p);
+          gifDiv.prepend(queenGif);
+
+          $("#gifs-here").prepend(gifDiv);
+        }
+    });
+});
+  
