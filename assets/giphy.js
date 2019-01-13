@@ -16,7 +16,7 @@ var createButtons = function () {
 }
 
 createButtons();
- 
+
 //new button is added but gifs are not generated when button is clicked
 $("#add-gif").on("click", function (event) {
   event.preventDefault();
@@ -24,11 +24,13 @@ $("#add-gif").on("click", function (event) {
   var gif = $("#gif-input").val().trim();
   // pushes in to array that holds search topics - and what is looped over to create buttons
   topics.push(gif);
+  debugger;
 
   // call create buttons again to make new button as items are pushed into array
   createButtons();
   $("#gif-input").val("");
 });
+
 
 //on click event to start gif
 //onclick event to stop gifs
