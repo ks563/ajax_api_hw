@@ -1,0 +1,23 @@
+body, html {
+    height: 100%;
+    font-family: 'Major Mono Display', monospace;
+  }
+  
+  .bg { 
+    /* The image used */
+    background-image: url("./9226.jpg");
+    /* >Background vector created by Kjpargeter - Freepik.com */
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.gif-btn{
+    font-family: 'Major Mono Display', monospace;
+
+}
