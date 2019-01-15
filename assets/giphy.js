@@ -1,6 +1,7 @@
 var topics = ["Alaska Thunderfuck", "Jujubee", "Shangela", "Willam Belli", "Alyssa Edwards", "Bob the Drag Queen", "Manila Luzon", "Raja"];
 // var ratingParam = ["g", "pg"]
-var limit;
+// var limit;
+// var key = "N5OKJJ5Kx7gKlaYEZha1x3zZvZli3Wwd"; used key from hw  for now - giphy key should be working now
 
 var createButtons = function () {
   // need to empty, buttons repeat when you add buttons
@@ -33,7 +34,8 @@ $("#add-gif").on("click", function (event) {
 
 //as soon as I add a new button it breaks the ajax call
 
-$(".gif-btn").on("click", function () {
+// $(".gif-btn").on("click", function () {
+ $(document).on("click", ".gif-btn", function () {
   var queen = $(this).attr("data-target");
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     queen + "&api_key=dc6zaTOxFJmzC&limit=10&rating=pg";
@@ -44,6 +46,7 @@ $(".gif-btn").on("click", function () {
   })
     .then(function (response) {
       var results = response.data;
+      console.log(results);
 
       for (var i = 0; i < results.length; i++) {
         var gifDiv = $("<div>");
@@ -54,6 +57,9 @@ $(".gif-btn").on("click", function () {
 
         var queenGif = $("<img>");
         queenGif.attr("src", results[i].images.fixed_height_still.url);
+        queenGif.attr("data-still", results[i].images.fixed_height_still.url);
+        queenGif.attr("data-animate", results[i].images.fixed_height_still.url);
+        queenGif.attr("data-state", "still")
 
         gifDiv.prepend(p);
         gifDiv.prepend(queenGif);
@@ -66,19 +72,24 @@ $(".gif-btn").on("click", function () {
 //on click event to start gif
 //onclick event to stop gifs
 
-$("#gifs-here").on("click", function () {
-  if ($(this).hasClass('playing')) {
-    //stop
-    $(this).removeAttr("src");
-    $(this).attr("src", results[i].images.fixed_height_still.url);
-    $(this).removeClass('playing');
-  } else {
-    //play
-    $(this).addClass('playing');
-    $(this).removeAttr('src');
-    $(this).attr("src", results[i].images.fixed_height.url);
+$("#gifs-here").on("click", "img", function () {
+  var state = $(this).attr("data-state");
+  if(state === "still"){
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  }else{
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
   }
 })
-
-// 74, 
-// 80 
+  // if ($(this).hasClass('playing')) {
+  //   //stop
+  //   $(this).removeAttr("src");
+  //   $(this).attr("src", results[i].images.fixed_height_still.url);
+  //   $(this).removeClass('playing');
+  // } else {
+  //   //play
+  //   $(this).addClass('playing');
+  //   $(this).removeAttr('src');
+  //   $(this).attr("src", results[i].images.fixed_height.url);
+  // }
