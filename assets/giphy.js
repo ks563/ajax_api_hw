@@ -58,8 +58,9 @@ $("#add-gif").on("click", function (event) {
         var queenGif = $("<img>");
         queenGif.attr("src", results[i].images.fixed_height_still.url);
         queenGif.attr("data-still", results[i].images.fixed_height_still.url);
-        queenGif.attr("data-animate", results[i].images.fixed_height_still.url);
-        queenGif.attr("data-state", "still")
+        queenGif.attr("data-animate", results[i].images.fixed_height.url);
+        queenGif.attr("data-state", "still");
+        queenGif.addClass("gif");
 
         gifDiv.prepend(p);
         gifDiv.prepend(queenGif);
@@ -69,10 +70,8 @@ $("#add-gif").on("click", function (event) {
     });
 });
 
-//on click event to start gif
-//onclick event to stop gifs
 
-$("#gifs-here").on("click", "img", function () {
+$(document).on("click", ".gif", function () {
   var state = $(this).attr("data-state");
   if(state === "still"){
     $(this).attr("src", $(this).attr("data-animate"));
@@ -82,14 +81,4 @@ $("#gifs-here").on("click", "img", function () {
     $(this).attr("data-state", "still");
   }
 })
-  // if ($(this).hasClass('playing')) {
-  //   //stop
-  //   $(this).removeAttr("src");
-  //   $(this).attr("src", results[i].images.fixed_height_still.url);
-  //   $(this).removeClass('playing');
-  // } else {
-  //   //play
-  //   $(this).addClass('playing');
-  //   $(this).removeAttr('src');
-  //   $(this).attr("src", results[i].images.fixed_height.url);
-  // }
+ 
