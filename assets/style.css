@@ -2,20 +2,32 @@ body, html {
     height: 100%;
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
+    background-image: url("./9226.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
   
   .bg { 
     /* The image used */
-    background-image: url("./9226.jpg");
+   
     /* >Background vector created by Kjpargeter - Freepik.com */
   
     /* Full height */
-    height: 100%; 
+   
+    /* 100vh */
+    /* height: 100vh;
+ 
+    /* Flexbox */
+    /* display: flex;
+    align-items: center; */ 
+   
   
     /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+
   }
 
 .gif-btn{
