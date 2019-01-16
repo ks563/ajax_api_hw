@@ -1,7 +1,7 @@
 var topics = ["Alaska Thunderfuck", "Jujubee", "Shangela", "Willam Belli", "Alyssa Edwards", "Bob the Drag Queen", "Manila Luzon", "Raja"];
 // var ratingParam = ["g", "pg"]
 // var limit;
-// var key = "N5OKJJ5Kx7gKlaYEZha1x3zZvZli3Wwd"; used key from hw  for now - giphy key should be working now
+// var key = "7PbXKNpRWtxRy8fbeuE7lnnXgotvBvF5"; 
 
 var createButtons = function () {
   // need to empty, buttons repeat when you add buttons
@@ -38,7 +38,7 @@ $("#add-gif").on("click", function (event) {
  $(document).on("click", ".gif-btn", function () {
   var queen = $(this).attr("data-target");
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    queen + "&api_key=dc6zaTOxFJmzC&limit=10&rating=pg";
+    queen + "&api_key=7PbXKNpRWtxRy8fbeuE7lnnXgotvBvF5&limit=10&rating=pg";
 
   $.ajax({
     url: queryURL,
@@ -53,8 +53,14 @@ $("#add-gif").on("click", function (event) {
 
         var rating = results[i].rating;
 
-        var p = $("<p>").text("Rating: " + rating);
+        var gifRating = $("<p>").text("Rating: " + rating);
 
+        var title = results[i].title;
+
+        var gifTitle = $("<p>").text("Title: " + title);
+        
+
+        //asigns image to queen gif and assigns data attributes, src attribute, along with class
         var queenGif = $("<img>");
         queenGif.attr("src", results[i].images.fixed_height_still.url);
         queenGif.attr("data-still", results[i].images.fixed_height_still.url);
@@ -62,7 +68,8 @@ $("#add-gif").on("click", function (event) {
         queenGif.attr("data-state", "still");
         queenGif.addClass("gif");
 
-        gifDiv.prepend(p);
+        gifDiv.prepend(gifRating);
+        gifDiv.prepend(gifTitle)
         gifDiv.prepend(queenGif);
 
         $("#gifs-here").prepend(gifDiv);
@@ -70,7 +77,8 @@ $("#add-gif").on("click", function (event) {
     });
 });
 
-
+//worked through pausing gifs exercise with my tutor then used code to play/pause gifs in my code.
+//uses on click event to target data attributes assigned in ajax call to switch still and animated gifs
 $(document).on("click", ".gif", function () {
   var state = $(this).attr("data-state");
   if(state === "still"){
