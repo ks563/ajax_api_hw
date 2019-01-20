@@ -8,45 +8,55 @@ body, html {
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
-  
-  .bg { 
-    /* The image used */
-   
-    /* >Background vector created by Kjpargeter - Freepik.com */
-  
-    /* Full height */
-   
-    /* 100vh */
-    /* height: 100vh;
- 
-    /* Flexbox */
-    /* display: flex;
-    align-items: center; */ 
-   
-  
-    /* Center and scale the image nicely */
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
 
+  .jumbotron{
+      background: black;
+      height: 3%;
+      font-weight: bolder;
+      color: white;
+      text-align: center;
+      opacity: .75;
+      
   }
+
+  #buttonsDiv{
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+
+  #gifs-here{
+      margin-top: 3%;
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+  
 
 .gif-btn{
     font-family: 'Major Mono Display', monospace;
     background-color: black;
     color: white;
+    opacity: .80;
 }
 
 #gif-form{
     margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
     font-weight: bold;
     float: right;
     font-size: 1.25em;
+}
+
+#gif-input{
+    border: solid;
 }
 
 #add-gif{
     margin-top: 5%;
     background-color: black;
     color: white;
+    opacity: .80;
+   
 }
 
 .clearfix::after {
