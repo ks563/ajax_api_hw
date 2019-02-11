@@ -3,8 +3,9 @@
 **GIF Generater**
 ===================================================================
 
-**GIF Generater** is an app that allows you to generate GIFs by clicking a buttom. The GIFs are paused on load and start/stop when clicked. More buttons can be added by users 
+**GIF Generater** is a web-based application that allows you to generate GIFs by clicking a buttom. The GIFs are paused on load and start/stop when clicked. More buttons can be added by users to expand the GIF options. 
 
+https://ks563.github.io/ajax_api_hw/
 
 The application is built with:
 ===================================================================
